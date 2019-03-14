@@ -3,7 +3,7 @@ Plugin to simplify work with Vuex.
 
 Use simple functions to access store state, getters and dispatch actions.
 
-You don't even need to create mutations.
+**You don't even need to create mutations.**
 
 ## Installation
 
@@ -45,7 +45,7 @@ export default new Vuex.Store({
           return 'Hello, ' + state.first_name + ' ' + state.last_name
       }
   },
-  modules: {shop}
+  modules: { shop }
 })
 
 ```
@@ -79,32 +79,25 @@ export default {
 
 ```
 
-AnyComponent.vue
+AnyComponent.js
 
-```vue
-<template>
-    <p>My awesome component</p>
-</template>
-
-<script>
-    export default {
-        name: 'AnyComponent',
-        created() {
-            const first_name = this._state('first_name'); // get first_name from root store
-            this._state('last_name', 'Smith'); // set last_name to 'Smith' in root store
-            this._action('myAction', { some: 'payload' }); // dispatch root action with payload
-            const hello_message = this._getter('helloGetter', 'optionalParamsHere') // use getter from root
-            
-            const products = this._state('shop', 'products'); // get products from shop module
-            this._state('shop', 'products', []); // make products an empty array
-            this._actionFm('shop', 'checkout', { some: 'payload' }); // dispatch action checkout from shop module
-            const summary = this._getterFm('shop', 'summary', 'optionalParams'); // use getter from shop module
-        }
+```js
+export default {
+    name: 'AnyComponent',
+    created() {
+        const first_name = this._state('first_name'); // get first_name from root store
+        this._state('last_name', 'Smith'); // set last_name to 'Smith' in root store
+        this._action('myAction', { some: 'payload' }); // dispatch root action with payload
+        const hello_message = this._getter('helloGetter', 'optionalParamsHere') // use getter from root
+        
+        const products = this._state('shop', 'products'); // get products from shop module
+        this._state('shop', 'products', []); // make products an empty array
+        this._actionFm('shop', 'checkout', { some: 'payload' }); // dispatch action checkout from shop module
+        const summary = this._getterFm('shop', 'summary', 'optionalParams'); // use getter from shop module
     }
-</script>
-
+}
 ```
 
 ## Contributions
 
-Thanks [@IngvarLosev](https://github.com/IngvarLosev) for idea and early realization
+Thanks to [@IngvarLosev](https://github.com/IngvarLosev) for idea and early realization
