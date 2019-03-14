@@ -84,7 +84,7 @@ AnyComponent.js
 ```js
 export default {
     name: 'AnyComponent',
-       created() {
+    created() {
         const first_name = this._state('first_name'); // get first_name from root store
         this._state('last_name', 'Smith'); // set last_name to 'Smith' in root store
         this._action('myAction', { some: 'payload' }); // dispatch root action with payload
