@@ -87,12 +87,12 @@ export default {
     created() {
         const first_name = this._state('first_name'); // get first_name from root store
         this._state('last_name', 'Smith'); // set last_name to 'Smith' in root store
-        this._action('myAction', { some: 'payload' }); // dispatch root action with payload
+        this._dispatch('myAction', { some: 'payload' }); // dispatch root action with payload
         const hello_message = this._getter('helloGetter', 'optionalParamsHere') // use getter from root
         
         const products = this._state('shop', 'products'); // get products from shop module
         this._state('shop', 'products', []); // make products an empty array
-        this._actionFm('shop', 'checkout', { some: 'payload' }); // dispatch action checkout from shop module
+        this._dispatch('shop', 'checkout', { some: 'payload' }); // dispatch action checkout from shop module
         const summary = this._getterFm('shop', 'summary', 'optionalParams'); // use getter from shop module
     }
 }
